@@ -7,6 +7,7 @@ Description: Controls the behavior of how dice roll.
 """
 
 from abc import ABC, abstractmethod
+import random
 
 
 class RollingEngine(ABC):
@@ -15,3 +16,10 @@ class RollingEngine(ABC):
     @abstractmethod
     def roll(self, sides: int) -> int:
         """Roll a die."""
+
+
+class PrngRollingEngine(RollingEngine):
+    """Pseudo-random engine."""
+
+    def roll(self, sides: int) -> int:
+        return random.randint(1, sides)
