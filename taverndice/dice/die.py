@@ -8,11 +8,22 @@ Description: Represents a die.
 
 from dataclasses import dataclass
 from .rolling_engine import RollingEngine
+from .exceptions import InvalidDieSidesException
 
 
 @dataclass
 class Die:
     """Represents a die."""
+    _sides: int
 
-    sides: int
+    @property
+    def sides(self) -> int:
+        return self._sides
+
+    @sides.setter
+    def sides(self, value: int) -> None:
+        if value <= 1:
+            raise InvalidDieSidesException("Sides must be greater than 1")
+        self._sides = value
+
     rolling_engine: RollingEngine
