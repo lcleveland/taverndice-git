@@ -13,5 +13,5 @@ class RollingEngine(ABC):
     """Defines the behavior of rolling engines."""
 
     @abstractmethod
-    def roll(self) -> int:
+    def roll(self, sides: int) -> int:
         """Roll a die."""
