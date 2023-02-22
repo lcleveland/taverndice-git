@@ -8,6 +8,7 @@ Description: Controls the behavior of how dice roll.
 
 from abc import ABC, abstractmethod
 import random
+from dataclasses import dataclass
 
 
 class RollingEngine(ABC):
@@ -18,6 +19,7 @@ class RollingEngine(ABC):
         """Roll a die."""
 
 
+@dataclass
 class PrngRollingEngine(RollingEngine):
     """Pseudo-random engine."""
 
