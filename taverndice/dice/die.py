@@ -6,7 +6,7 @@ Github: https://github.com/lcleveland
 Description: Represents a die.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from .rolling_engine import RollingEngine
 from .exceptions import InvalidDieSidesException
 
@@ -14,7 +14,9 @@ from .exceptions import InvalidDieSidesException
 @dataclass
 class Die:
     """Represents a die."""
-    _sides: int
+    rolling_engine: RollingEngine
+    sides: int
+    _sides: int = field(init=False)
 
     @property
     def sides(self) -> int:
@@ -25,8 +27,6 @@ class Die:
         if value <= 1:
             raise InvalidDieSidesException("Sides must be greater than 1")
         self._sides = value
-
-    rolling_engine: RollingEngine
 
     def roll(self) -> int:
         """Roll the die using the rolling engine and return the result."""
