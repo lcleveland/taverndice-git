@@ -27,3 +27,7 @@ class Die:
         self._sides = value
 
     rolling_engine: RollingEngine
+
+    def roll(self) -> int:
+        """Roll the die using the rolling engine and return the result."""
+        return self.rolling_engine.roll(self.sides)
