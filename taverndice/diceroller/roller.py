@@ -11,3 +11,4 @@ from dataclasses import dataclass
 
 @dataclass
 class Roller:
+    def convert(self, roll_string: str):
