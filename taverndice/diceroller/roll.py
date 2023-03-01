@@ -34,6 +34,7 @@ COMPARISON_MODES = {
 
 @dataclass
 class Roll:
+    """Roll a number of dice according to a selected mode."""
     dice_sides: int
     dice_count: int = field(default=1)
     modifier: int = field(default=0)
