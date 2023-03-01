@@ -6,6 +6,7 @@ Github: https://github.com/lcleveland
 Description: Handles rolling dice.
 """
 from dataclasses import dataclass, field
+from ..dice.die import Die
 
 
 ROLL_MODES = {
@@ -35,7 +36,7 @@ COMPARISON_MODES = {
 @dataclass
 class Roll:
     """Roll a number of dice according to a selected mode."""
-    dice_sides: int
+    die: Die
     dice_count: int = field(default=1)
     modifier: int = field(default=0)
     result: int = field(init=False, default=0)
