@@ -36,10 +36,21 @@ COMPARISON_MODES = {
 @dataclass
 class Roll:
     """Roll a number of dice according to a selected mode."""
+
     die: Die
+    """Die to roll."""
+
     dice_count: int = field(default=1)
+    """Number of times to roll the die."""
+
     modifier: int = field(default=0)
-    result: int = field(init=False, default=0)
+    """Modifier to add to the roll total."""
+
     mode: int = field(default=ROLL_MODES["none"])
+    """Mode used to determine how to roll the dice."""
+
     comparison_mode: int = field(default=COMPARISON_MODES["none"])
+    """Mode used to determine any comparisons that need to be done."""
+
     target_numbers: list[int] = field(default_factory=list)
+    """Numbers that are used for comparison."""
