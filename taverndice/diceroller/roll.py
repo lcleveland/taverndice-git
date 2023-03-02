@@ -52,5 +52,5 @@ class Roll:
     comparison_mode: int = field(default=COMPARISON_MODES["none"])
     """Mode used to determine any comparisons that need to be done."""
 
-    target_numbers: list[int] = field(default_factory=list)
+    comparison_numbers: list[int] = field(default_factory=list)
     """Numbers that are used for comparison."""
